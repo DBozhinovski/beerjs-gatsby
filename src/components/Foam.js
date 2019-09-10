@@ -1,5 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const flowing = keyframes`
+  0 100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.1);
+  }
+`;
 
 const FoamOverflow = styled.div`
   position: absolute;
@@ -21,6 +31,7 @@ const Foam = styled.div`
   opacity: 0.65;
   background: linear-gradient(180deg, #fff 0, hsla(0, 0%, 100%, 0.5) 80%, hsla(0, 0%, 100%, 0.1));
   clip-path: url(#clip);
+  animation: ${flowing} 6s linear infinite;
 `;
 
 const FoamTop = styled.div`
@@ -33,6 +44,7 @@ const FoamTop = styled.div`
   background: linear-gradient(180deg, #fff 0, hsla(0, 0%, 100%, 0.7) 80%, hsla(0, 0%, 100%, 0.2));
   clip-path: url(#clip);
   transform: scaleY(0.9) translateY(-15px);
+  animation: ${flowing} 9s linear infinite;
 `;
 
 const FoamLayer = () => (

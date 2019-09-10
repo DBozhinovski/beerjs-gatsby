@@ -10,7 +10,7 @@ import { media } from '../utils/media';
 
 import FoamLayer from './Foam';
 import Bubbles from './Bubbles';
-import Clip from './Clip'; 
+import Clip from './Clip';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -83,7 +83,11 @@ const Contents = styled.div`
   position: absolute;
   z-index: 40;
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const LandingLayout = ({ children }) => (
@@ -104,11 +108,7 @@ const LandingLayout = ({ children }) => (
           <Bubbles />
           <Contents>
             {children}
-            <Footer>
-              &copy; 2018 by John Doe. All rights reserved. <br />
-              <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog">GitHub Repository</a> <br />
-              <span>Last build: {data.site.buildTime}</span>
-            </Footer>
+            <Footer> FOOTER </Footer>
             <Clip />
           </Contents>
         </React.Fragment>

@@ -8,7 +8,7 @@ import { media } from '../utils/media';
 const IndexPage = ({ data }) => {
   console.log(data);
 
-  return <LandingLayout>Root</LandingLayout>;
+  return <LandingLayout>ASDF</LandingLayout>;
 };
 
 export default IndexPage;
