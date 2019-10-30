@@ -13,15 +13,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'event',
-        path: `${__dirname}/blog/events`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'announcement',
-        path: `${__dirname}/blog/announcements`,
+        name: 'post',
+        path: `${__dirname}/src/posts`,
       },
     },
     {

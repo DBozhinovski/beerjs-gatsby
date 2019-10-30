@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { SEO } from 'components';
+import SEO from './SEO';
 import theme from '../../config/Theme';
 import { media } from '../utils/media';
 
@@ -79,7 +79,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <ThemeProvider theme={theme}>
-        <React.Fragment>
+        <>
           <SEO />
           <GlobalStyle />
           {children}
@@ -88,7 +88,7 @@ const Layout = ({ children }) => (
             <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog">GitHub Repository</a> <br />
             <span>Last build: {data.site.buildTime}</span>
           </Footer>
-        </React.Fragment>
+        </>
       </ThemeProvider>
     )}
   />

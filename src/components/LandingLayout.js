@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { SEO } from 'components';
+import SEO from './SEO';
 import theme from '../../config/Theme';
 import { media } from '../utils/media';
 
@@ -101,7 +101,7 @@ const LandingLayout = ({ children }) => (
     `}
     render={data => (
       <ThemeProvider theme={theme}>
-        <React.Fragment>
+        <>
           <SEO />
           <GlobalStyle />
           <FoamLayer />
@@ -111,7 +111,7 @@ const LandingLayout = ({ children }) => (
             <Footer> FOOTER </Footer>
             <Clip />
           </Contents>
-        </React.Fragment>
+        </>
       </ThemeProvider>
     )}
   />

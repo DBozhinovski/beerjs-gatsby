@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import kebabCase from 'lodash/kebabCase';
-import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from 'components';
+import { Layout, Wrapper, Header, Subline, SEO } from '../components';
 import { media } from '../utils/media';
 import config from '../../config/SiteConfig';
 import '../utils/prismjs-theme.css';
@@ -34,13 +34,13 @@ const PostContent = styled.div`
   margin-top: 4rem;
 `;
 
-const Post = ({ pageContext: { slug, prev, next }, data: { markdownRemark: postNode } }) => {
+const Post = ({ data: { markdownRemark: postNode } }) => {
   const post = postNode.frontmatter;
 
   return (
     <Layout>
       <Wrapper>
-        <SEO postPath={slug} postNode={postNode} postSEO />
+        <SEO postPath={post.path} postNode={postNode} postSEO />
         <Helmet title={`${post.title} | ${config.siteTitle}`} />
         <Header>
           <Link to="/">{config.siteTitle}</Link>
@@ -52,7 +52,6 @@ const Post = ({ pageContext: { slug, prev, next }, data: { markdownRemark: postN
             <Link to={`/categories/${kebabCase(post.category)}`}>{post.category}</Link>
           </Subline>
           <PostContent dangerouslySetInnerHTML={{ __html: postNode.html }} />
-          <PrevNext prev={prev} next={next} />
         </Content>
       </Wrapper>
     </Layout>
@@ -62,32 +61,19 @@ const Post = ({ pageContext: { slug, prev, next }, data: { markdownRemark: postN
 export default Post;
 
 Post.propTypes = {
-  pageContext: PropTypes.shape({
-    slug: PropTypes.string.isRequired,
-    next: PropTypes.object,
-    prev: PropTypes.object,
-  }),
   data: PropTypes.shape({
     markdownRemark: PropTypes.object.isRequired,
   }).isRequired,
 };
 
-Post.defaultProps = {
-  pageContext: PropTypes.shape({
-    next: null,
-    prev: null,
-  }),
-};
-
 export const postQuery = graphql`
-  query postBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query($path: String!) {
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
-      excerpt
       frontmatter {
         title
         date(formatString: "DD.MM.YYYY")
-        category
+        path
       }
       timeToRead
     }
