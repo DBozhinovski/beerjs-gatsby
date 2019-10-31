@@ -7,6 +7,7 @@ author:
   email: dbozhinovski@gmail.com
   about: "Does JS for fun and profit. Organizer of Beer.js Skopje."
 date: "2018-12-07"
+category: "blog"
 ---
 
 Уште еден beer.js - уште една анкета. Резултатите беа подобри од минатиот пат, а и ние сме позадоволни од тоа како се одвиваа работите. Голема благодарност 

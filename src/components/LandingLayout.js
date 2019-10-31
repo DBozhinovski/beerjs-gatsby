@@ -71,14 +71,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Footer = styled.footer`
-  text-align: center;
-  padding: 3rem 0;
-  span {
-    font-size: 0.75rem;
-  }
-`;
-
 const Contents = styled.div`
   position: absolute;
   z-index: 40;
@@ -87,7 +79,56 @@ const Contents = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  // justify-content: center;
+  padding-top: 5vh;
+
+  h2 {
+    font-weight: 100;
+    text-align: center;
+    font-size: 1.3rem;
+    width: 350px;
+    // margin-top: 1rem;
+  }
+`;
+
+const Logo = styled.div`
+  background: #fff;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  border-radius: 999px;
+  border: 3px dotted #999;
+  img {
+    width: 110px;
+    margin: 0;
+  }
+`;
+
+const Sticker = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  h1 {
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+  }
+`;
+
+const Middle = styled.div`
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const Footer = styled.div`
+  // justify-self: flex-end;
 `;
 
 const LandingLayout = ({ children }) => (
@@ -107,8 +148,19 @@ const LandingLayout = ({ children }) => (
           <FoamLayer />
           <Bubbles />
           <Contents>
-            {children}
-            <Footer> FOOTER </Footer>
+            <Middle>
+              <Sticker>
+                <Logo>
+                  <img src="/social/beerjs.svg" alt="BeerJS logo" />
+                </Logo>
+                <h1>BeerJS</h1>
+              </Sticker>
+              <h2>Собир за ентузијасти за пиво и JavaScript</h2>
+              {children}
+            </Middle>
+            <Footer>
+              <a href="/info/about-beerjs">За настанот</a> | <a href="/events">Претходни</a> | <a href="/blog/">Блог</a> | <a href="/contact">Контакт</a>
+            </Footer>
             <Clip />
           </Contents>
         </>

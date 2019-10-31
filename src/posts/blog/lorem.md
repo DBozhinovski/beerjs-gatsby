@@ -2,7 +2,7 @@
 path: "/blog/test"
 date: "2018-01-01"
 title: "Lorem Ipsum"
-category: "Blog"
+category: "blog"
 ---
 
 [View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)

@@ -5,39 +5,43 @@ import styled from 'styled-components';
 import { LandingLayout, Article, Wrapper, Button, SectionTitle } from '../components';
 import { media } from '../utils/media';
 
-const IndexPage = (/*{ data }*/) => {
-  // console.log(data);
+const IndexPage = ({ data }) => {
+  console.log(data.allMarkdownRemark.edges[0].node.frontmatter.path);
+  const { frontmatter } = data.allMarkdownRemark.edges[0].node;
 
-  return <LandingLayout>ASDF</LandingLayout>;
+  return (
+    <LandingLayout>
+      <div>
+        <a href={frontmatter.path}>{frontmatter.title}</a>
+      </div>
+    </LandingLayout>
+  );
 };
 
 export default IndexPage;
 
-// IndexPage.propTypes = {
-//   data: PropTypes.shape({
-//     allMarkdownRemark: PropTypes.shape({
-//       edges: PropTypes.array.isRequired,
-//     }),
-//   }).isRequired,
-// };
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
-// export const IndexQuery = graphql`
-//   query IndexQuery {
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-//       edges {
-//         node {
-//           fields {
-//             slug
-//           }
-//           frontmatter {
-//             title
-//             date(formatString: "DD.MM.YYYY")
-//             category
-//           }
-//           excerpt(pruneLength: 200)
-//           timeToRead
-//         }
-//       }
-//     }
-//   }
-// `;
+export const IndexQuery = graphql`
+  query IndexQuery {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { in: ["announcements", "events"] } } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date
+            path
+          }
+          html
+        }
+      }
+    }
+  }
+`;

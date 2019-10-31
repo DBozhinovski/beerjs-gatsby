@@ -2,6 +2,7 @@
 path: "/events/vol-1"
 title: Vol 1
 date: "2017-06-16"
+category: "events"
 ---
 
 ### 1. Introduction to React and Redux - __Димитар Делев__
