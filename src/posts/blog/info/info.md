@@ -16,9 +16,9 @@ Beer.js e собир наменет за ентузијасти за пиво и
 ## Пријатели на настанот
 
 <div class='friends'>
-  <a href="http://coffice.com.mk/"><img src="/images/coffice.svg" /></a>
-  <a href="http://abix.mk/#/"><img src="/images/abix.svg" /></a>
-  <a href="https://melontech.com/"><img src="/images/melon.svg" /></a>
+  <a href="https://melontech.com/"><img src="/img/melon.svg" /></a>
+  <a href="http://coffice.com.mk/"><img src="/img/coffice.svg" /></a>
+  <a href="http://abix.mk/#/"><img src="/img/abix.svg" /></a>
 </div>
 
 Отворени сме за нови поддржувачи во секое време, особено ако се заинтересирани за донации во форма на пиво! :)
