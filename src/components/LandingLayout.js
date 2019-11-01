@@ -11,6 +11,7 @@ import { media } from '../utils/media';
 import FoamLayer from './Foam';
 import Bubbles from './Bubbles';
 import Clip from './Clip';
+import Logo from './Logo';
 
 const GlobalStyle = createGlobalStyle`
   *, :after, :before {
@@ -91,21 +92,6 @@ const Contents = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  background: #fff;
-  width: 190px;
-  height: 190px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  border: 3px dotted #999;
-  img {
-    width: 110px;
-    margin: 0;
-  }
-`;
-
 const Sticker = styled.div`
   display: flex;
   flex-direction: column;
@@ -150,16 +136,14 @@ const LandingLayout = ({ children }) => (
           <Contents>
             <Middle>
               <Sticker>
-                <Logo>
-                  <img src="/social/beerjs.svg" alt="BeerJS logo" />
-                </Logo>
+                <Logo />
                 <h1>BeerJS</h1>
               </Sticker>
               <h2>Собир за ентузијасти за пиво и JavaScript</h2>
               {children}
             </Middle>
             <Footer>
-              <a href="/info/about-beerjs">За настанот</a> | <a href="/events">Претходни</a> | <a href="/blog/">Блог</a> | <a href="/contact">Контакт</a>
+              <a href="/info/about-beerjs">За BeerJS</a> | <a href="/events">Претходни</a> | <a href="/blog/">Блог</a> | <a href="/contact">Контакт</a>
             </Footer>
             <Clip />
           </Contents>

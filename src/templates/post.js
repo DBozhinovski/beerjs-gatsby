@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import kebabCase from 'lodash/kebabCase';
-import { Layout, Wrapper, Header, Subline, SEO } from '../components';
+import { Layout, Wrapper, Header, Subline, SEO, Logo } from '../components';
 import { media } from '../utils/media';
 import config from '../../config/SiteConfig';
 import '../utils/prismjs-theme.css';
@@ -34,6 +34,39 @@ const PostContent = styled.div`
   margin-top: 4rem;
 `;
 
+const Navigation = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: #4392f1;
+    font-size: 1.3rem;
+  }
+
+  a:hover {
+    color: ${props => props.theme.colors.primary}}
+  }
+
+  a + a::before {
+    content: '|';
+    text-overflow: '' '';
+  }
+
+  @media ${media.phone} {
+    flex-direction: column;
+    align-items: flex-end;
+
+    a {
+      font-size: 1rem;
+    }
+
+    a + a::before {
+      content: '';
+    }
+  }
+`;
+
 const Post = ({ data: { markdownRemark: postNode } }) => {
   const post = postNode.frontmatter;
 
@@ -43,7 +76,15 @@ const Post = ({ data: { markdownRemark: postNode } }) => {
         <SEO postPath={post.path} postNode={postNode} postSEO />
         <Helmet title={`${post.title} | ${config.siteTitle}`} />
         <Header>
-          <Link to="/">{config.siteTitle}</Link>
+          <Link to="/">
+            <Logo scale={0.6} />
+          </Link>
+          <Navigation>
+            <a href="/">За BeerJS&nbsp;</a>
+            <a href="/">&nbsp;Претходни&nbsp;</a>
+            <a href="/">&nbsp;Блог&nbsp;</a>
+            <a href="/">&nbsp;Контакт</a>
+          </Navigation>
         </Header>
         <Content>
           <Title>{post.title}</Title>
@@ -74,6 +115,7 @@ export const postQuery = graphql`
         title
         date(formatString: "DD.MM.YYYY")
         path
+        category
       }
       timeToRead
     }

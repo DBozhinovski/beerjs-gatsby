@@ -5,6 +5,11 @@ import styled from 'styled-components';
 import { LandingLayout, Article, Wrapper, Button, SectionTitle } from '../components';
 import { media } from '../utils/media';
 
+const BigLink = styled.a`
+  font-size: 2rem;
+  color: #4392f1;
+`;
+
 const IndexPage = ({ data }) => {
   console.log(data.allMarkdownRemark.edges[0].node.frontmatter.path);
   const { frontmatter } = data.allMarkdownRemark.edges[0].node;
@@ -12,7 +17,7 @@ const IndexPage = ({ data }) => {
   return (
     <LandingLayout>
       <div>
-        <a href={frontmatter.path}>{frontmatter.title}</a>
+        <BigLink href={frontmatter.path}>[ {frontmatter.title} ]</BigLink>
       </div>
     </LandingLayout>
   );

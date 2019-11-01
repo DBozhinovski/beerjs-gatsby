@@ -84,8 +84,9 @@ const Layout = ({ children }) => (
           <GlobalStyle />
           {children}
           <Footer>
-            &copy; 2018 by John Doe. All rights reserved. <br />
-            <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog">GitHub Repository</a> <br />
+            By BeerJS Skopje.&nbsp;
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?source=follow_footer--------------------------follow_footer-">CC BY-NC-SA 4.0</a> <br />
+            <a href="https://github.com/DBozhinovski/beerjs.mk">GitHub Repository</a> <br />
             <span>Last build: {data.site.buildTime}</span>
           </Footer>
         </>

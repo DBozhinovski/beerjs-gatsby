@@ -22,7 +22,8 @@ module.exports = {
   backgroundColor: '#2b2e3c',
 
   // Settings for typography.js
-  headerFontFamily: 'Inter UI',
-  bodyFontFamily: 'Noto Serif',
+  headerFontFamily: 'Noto Serif',
+  // bodyFontFamily: 'Noto Serif',
+  bodyFontFamily: 'Inter UI',
   baseFontSize: '18px',
 };
