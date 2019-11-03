@@ -51,6 +51,11 @@ const Navigation = styled.div`
   a + a::before {
     content: '|';
     text-overflow: '' '';
+    color: #000;
+  }
+
+  a + a:hover::before {
+    color: #000;
   }
 
   @media ${media.phone} {
@@ -80,10 +85,10 @@ const Post = ({ data: { markdownRemark: postNode } }) => {
             <Logo scale={0.6} />
           </Link>
           <Navigation>
-            <a href="/">За BeerJS&nbsp;</a>
-            <a href="/">&nbsp;Претходни&nbsp;</a>
-            <a href="/">&nbsp;Блог&nbsp;</a>
-            <a href="/">&nbsp;Контакт</a>
+            <a href="/info/about-beerjs">За BeerJS&nbsp;</a>
+            <a href="/events">&nbsp;Претходни&nbsp;</a>
+            <a href="/blog">&nbsp;Блог&nbsp;</a>
+            <a href="/contact">&nbsp;Контакт</a>
           </Navigation>
         </Header>
         <Content>

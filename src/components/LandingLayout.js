@@ -114,7 +114,29 @@ const Middle = styled.div`
 `;
 
 const Footer = styled.div`
-  // justify-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0.5rem 0;
+
+  a {
+    color: #4392f1;
+    font-size: 1.1rem;
+  }
+
+  a:hover {
+    color: ${props => props.theme.colors.primary}};
+  }
+
+  a + a::before {
+    content: '|';
+    text-overflow: '' '';
+    color: #000;
+  }
+
+  a + a:hover::before {
+    color: #000;
+  }
 `;
 
 const LandingLayout = ({ children }) => (
@@ -143,7 +165,10 @@ const LandingLayout = ({ children }) => (
               {children}
             </Middle>
             <Footer>
-              <a href="/info/about-beerjs">За BeerJS</a> | <a href="/events">Претходни</a> | <a href="/blog/">Блог</a> | <a href="/contact">Контакт</a>
+              <a href="/info/about-beerjs">За BeerJS&nbsp;</a>
+              <a href="/events">&nbsp;Претходни&nbsp;</a>
+              <a href="/blog">&nbsp;Блог&nbsp;</a>
+              <a href="/contact">&nbsp;Контакт</a>
             </Footer>
             <Clip />
           </Contents>

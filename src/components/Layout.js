@@ -58,6 +58,31 @@ const GlobalStyle = createGlobalStyle`
       outline: none;
     }
   }
+  .friends {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .current {
+      display: flex;
+      // align-items: space-between;
+
+      img {
+        width: 30vw;
+        padding: 1vw;
+      }
+    }
+
+    .past {
+      display: flex;
+
+      img {
+        width: 10vw;
+        pading: 0.5vw
+      }
+    }
+  }
 `;
 
 const Footer = styled.footer`
