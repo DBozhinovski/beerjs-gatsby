@@ -9,5 +9,19 @@ import SEO from './SEO';
 import Subline from './Subline';
 import Wrapper from './Wrapper';
 import Logo from './Logo';
+import Navigation from './Navigation';
 
-export { Article, Button, Header, Layout, PrevNext, SectionTitle, SEO, Subline, Wrapper, LandingLayout, Logo };
+export {
+  Article,
+  Button,
+  Header,
+  Layout,
+  PrevNext,
+  SectionTitle,
+  SEO,
+  Subline,
+  Wrapper,
+  LandingLayout,
+  Logo,
+  Navigation,
+};

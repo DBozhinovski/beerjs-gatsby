@@ -166,8 +166,8 @@ const LandingLayout = ({ children }) => (
             </Middle>
             <Footer>
               <a href="/info/about-beerjs">За BeerJS&nbsp;</a>
-              <a href="/events">&nbsp;Претходни&nbsp;</a>
-              <a href="/blog">&nbsp;Блог&nbsp;</a>
+              <a href="/categories/events">&nbsp;Претходни&nbsp;</a>
+              <a href="/categories/blog">&nbsp;Блог&nbsp;</a>
               <a href="/contact">&nbsp;Контакт</a>
             </Footer>
             <Clip />

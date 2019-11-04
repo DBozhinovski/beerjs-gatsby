@@ -22,7 +22,9 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   a {
-    color: ${theme.colors.grey.dark};
+    // color: ${theme.colors.grey.dark};
+    // Make this part of the theme at some point
+    color: #4392f1; 
     text-decoration: none;
     transition: all ${theme.transitions.normal};
   }
@@ -63,6 +65,18 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1.3rem;
+
+    a {
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      margin-bottom: 0;
+    }
 
     .current {
       display: flex;
@@ -110,7 +124,11 @@ const Layout = ({ children }) => (
           {children}
           <Footer>
             By BeerJS Skopje.&nbsp;
-            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?source=follow_footer--------------------------follow_footer-">CC BY-NC-SA 4.0</a> <br />
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?source=follow_footer--------------------------follow_footer-">
+              CC BY-NC-SA 4.0
+            </a>
+            &nbsp;
+            <br />
             <a href="https://github.com/DBozhinovski/beerjs.mk">GitHub Repository</a> <br />
             <span>Last build: {data.site.buildTime}</span>
           </Footer>

@@ -1,29 +1,18 @@
 const path = require('path');
-// const _ = require('lodash');
 
-// exports.onCreateNode = ({ node, actions }) => {
-//   const { createNodeField } = actions;
-//   let slug;
-//   if (node.internal.type === 'MarkdownRemark') {
-//     if (
-//       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
-//       Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
-//     ) {
-//       slug = `/${_.kebabCase(node.frontmatter.slug)}`;
-//     }
-//     if (
-//       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
-//       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
-//     ) {
-//       slug = `/${_.kebabCase(node.frontmatter.title)}`;
-//     }
-//     createNodeField({ node, name: 'slug', value: slug });
-//   }
-// };
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions;
+
+  if (page.path.match(/^\/categories/)) {
+    page.matchPag = '/categories/*';
+    createPage(page);
+  }
+};
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   const blogPostTemplate = path.resolve(`src/templates/post.js`);
+  const categoriesTemplate = path.resolve(`src/templates/categories.js`);
 
   const result = await graphql(`
     {
@@ -32,6 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             frontmatter {
               path
+              category
             }
           }
         }
@@ -43,11 +33,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
+
+  const categorySet = new Set();
+
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
       component: blogPostTemplate,
       context: {}, // additional data can be passed via context
+    });
+
+    categorySet.add(node.frontmatter.category);
+  });
+
+  const categories = Array.from(categorySet);
+
+  categories.forEach(cat => {
+    createPage({
+      path: `/categories/${cat.toLowerCase()}`,
+      component: categoriesTemplate,
+      context: {
+        category: cat,
+      },
     });
   });
 };

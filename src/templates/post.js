@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import kebabCase from 'lodash/kebabCase';
-import { Layout, Wrapper, Header, Subline, SEO, Logo } from '../components';
+import { Layout, Wrapper, Header, Subline, SEO, Logo, Navigation } from '../components';
 import { media } from '../utils/media';
 import config from '../../config/SiteConfig';
 import '../utils/prismjs-theme.css';
@@ -32,43 +32,9 @@ const Title = styled.h1`
 
 const PostContent = styled.div`
   margin-top: 4rem;
-`;
-
-const Navigation = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   a {
-    color: #4392f1;
-    font-size: 1.3rem;
-  }
-
-  a:hover {
-    color: ${props => props.theme.colors.primary}}
-  }
-
-  a + a::before {
-    content: '|';
-    text-overflow: '' '';
-    color: #000;
-  }
-
-  a + a:hover::before {
-    color: #000;
-  }
-
-  @media ${media.phone} {
-    flex-direction: column;
-    align-items: flex-end;
-
-    a {
-      font-size: 1rem;
-    }
-
-    a + a::before {
-      content: '';
-    }
+    text-decoration: underline;
   }
 `;
 
@@ -84,12 +50,7 @@ const Post = ({ data: { markdownRemark: postNode } }) => {
           <Link to="/">
             <Logo scale={0.6} />
           </Link>
-          <Navigation>
-            <a href="/info/about-beerjs">За BeerJS&nbsp;</a>
-            <a href="/events">&nbsp;Претходни&nbsp;</a>
-            <a href="/blog">&nbsp;Блог&nbsp;</a>
-            <a href="/contact">&nbsp;Контакт</a>
-          </Navigation>
+          <Navigation />
         </Header>
         <Content>
           <Title>{post.title}</Title>
