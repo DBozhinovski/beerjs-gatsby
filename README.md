@@ -1,3 +1,6 @@
+# `[DEPRECATED]`
+Moved to https://github.com/DBozhinovski/beerjs.mk
+
 # Gatsby Starter: Minimal Blog
 
 Big typography, focus on the content & minimal style.
